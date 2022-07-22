@@ -1,26 +1,21 @@
-import React from "react";
+import React, {useState} from "react";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+export const ToDoList = ()=>{
+	const [myArray, setMyArray] = useState(["sleep","exercise","eat","work"])
+	function addToDoList(newTask){
+    const myArray2 = [newTask]
+	const myNewArray = myArray.concat(myArray2)
+	setMyArray(myNewArray);
+	}
+	
 
-//create your first component
-const Home = () => {
-	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
-	);
-};
-
-export default Home;
+return(
+	<div> <input></input><span role = "span" onClick={()=> addToDoList("school")}>Add New Task</span>
+		
+		<ul>
+			{myArray.map((item, index)=>(<li key={index}>{item}</li>))}
+			
+		</ul>
+	</div>
+)
+}
