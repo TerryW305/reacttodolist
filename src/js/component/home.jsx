@@ -1,19 +1,27 @@
 import React, {useState} from "react";
 
 export const ToDoList = ()=>{
-	const [myArray, setMyArray] = useState(["sleep","exercise","eat","work"])
-	function addToDoList(newTask){
-    const myArray2 = [newTask]
-	const myNewArray = myArray.concat(myArray2)
-	setMyArray(myNewArray);
-	}
+	const [myArray, setMyArray] = useState([])
+	const [item, setItem] = useState("");
+	function addItem(data){
+		if (data!="")
+		setMyArray([...myArray, data])
+		setItem("")
 	
-
-return(
-	<div> <input></input><span role = "span" onClick={()=> addToDoList("school")}>Add New Task</span>
-		
-		<ul>
-			{myArray.map((item, index)=>(<li key={index}>{item}</li>))}
+	}
+	return(
+	
+	<div> 
+		<h1 className="text-center">Todos</h1>
+		<div className="d-flex justify-content-center">
+		<input 
+        value={item}
+        onChange={e => setItem(e.target.value)}
+    />
+	<button className="btn btn-success" onClick={()=>addItem(item)}>Add Item</button>
+	</div>
+		<ul className="list-group p-5">
+			{myArray.map((item, index)=>(<li className="list-group-item" key={index}>{item}</li>))}
 			
 		</ul>
 	</div>
