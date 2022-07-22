@@ -12,7 +12,7 @@ export const ToDoList = ()=>{
 	return(
 	
 	<div> 
-		<h1 className="text-center">Todos</h1>
+		<h1 className="text-center fst-italic"  >Todos</h1>
 		<div className="d-flex justify-content-center">
 		<input 
         value={item}
@@ -23,6 +23,12 @@ export const ToDoList = ()=>{
 		<ul className="list-group p-5">
 			{myArray.map((item, index)=>(<li className="list-group-item" key={index}>{item}</li>))}
 			
+			{myArray.map((item, data) => (
+					<li key={item} className="spacing">
+						{item.data}{" "}
+						<button onClick ={() => removeItem(myArray)}>x</button>
+					</li>
+				))}
 		</ul>
 	</div>
 )
