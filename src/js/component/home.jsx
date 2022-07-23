@@ -9,6 +9,10 @@ export const ToDoList = ()=>{
 		setItem("")
 	
 	}
+	const removeItem = (index) => {
+		let newArray = []
+		setMyArray(newArray)
+	}
 	return(
 	
 	<div> 
@@ -23,10 +27,10 @@ export const ToDoList = ()=>{
 		<ul className="list-group p-5">
 			{myArray.map((item, index)=>(<li className="list-group-item" key={index}>{item}</li>))}
 			
-			{myArray.map((item, data) => (
+			{myArray.map((item, index) => (
 					<li key={item} className="spacing">
 						{item.data}{" "}
-						<button onClick ={() => removeItem(myArray)}>x</button>
+						<button onClick ={() => removeItem(index)}>x</button>
 					</li>
 				))}
 		</ul>
