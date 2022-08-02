@@ -25,14 +25,12 @@ export const ToDoList = ()=>{
 	<button className="btn btn-success" onClick={()=>addItem(item)}>Add Item</button>
 	</div>
 		<ul className="list-group p-5">
-			{myArray.map((item, index)=>(<li className="list-group-item" key={index}>{item}</li>))}
+			{myArray.map((item, index)=>(<li className="list-group-item d-flex justify-content" key={index}>
+				{item}
+				<button onClick ={() => removeItem(index)}>x</button>
+			</li>))}
 			
-			{myArray.map((item, index) => (
-					<li key={item} className="spacing">
-						{item.data}{" "}
-						<button onClick ={() => removeItem(index)}>x</button>
-					</li>
-				))}
+			
 		</ul>
 	</div>
 )
