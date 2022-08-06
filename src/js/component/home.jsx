@@ -10,7 +10,8 @@ export const ToDoList = ()=>{
 	
 	}
 	const removeItem = (index) => {
-		let newArray = []
+		let newArray = [...myArray]
+		newArray.splice(index, 1)
 		setMyArray(newArray)
 	}
 	return(
